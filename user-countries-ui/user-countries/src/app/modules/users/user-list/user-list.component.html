@@ -1,0 +1,27 @@
+<div *ngIf="loading; else userTable" class="loading-container">
+  <div class="loading-spinner"></div>
+</div>
+
+<div *ngIf="errorMessage" class="error-container">
+  <h3>Error Loading Data</h3>
+  <p>{{ errorMessage }}</p>
+</div>
+
+<ng-template #userTable>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.id }}</td>
+          <td>{{ user.username }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>
